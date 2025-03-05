@@ -5,21 +5,21 @@
 }
 
 .slider-box {
-    width: 100vw; /* Ocupa todo el ancho de la pantalla */
-    height: 100vh; /* Ocupa todo el alto de la pantalla */
+    width: 100vw;
+    height: 100vh;
     overflow: hidden;
     position: relative;
 }
 
 .slider-box ul {
     display: flex;
-    width: 500%; /* 5 imágenes → 500% */
+    width: 500%;
     height: 100%;
     animation: slide 20s infinite alternate ease-in-out;
 }
 
 .slider-box li {
-    width: 100vw; /* Cada imagen ocupa el 100% del viewport */
+    width: 100vw;
     height: 100vh;
     list-style: none;
 }
@@ -27,7 +27,32 @@
 .slider-box img {
     width: 100vw;
     height: 100vh;
-    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    object-fit: cover;
+}
+
+/* Sección de sinopsis a pantalla completa con fondo */
+.sinopsis-container {
+    width: 100vw;
+    height: 100vh; /* Ocupa toda la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    background-image: url('Imagenes/Background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Opcional: Mejor contraste del texto */
+.sinopsis-container h2 {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+    font-size: 24px;
 }
 
 @keyframes slide {
