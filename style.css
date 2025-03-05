@@ -6,23 +6,33 @@
 
 /* Encabezado */
 header {
-    background-color: #333;
+    background-color: transparent;
     color: #F7DC11;
     text-align: center;
     padding: 1em;
     display: flex;
     justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    vertical-align: auto;
 }
 
 /* Imágenes de encabezado*/
 header img {
     height: 120px;
     width: auto;
+    margin-left: 100px;
+    margin-top: 10px;
 }
 
 /* Menú de navegación */
 nav {
     background-color: transparent;
+    display: flex;
+    align-items: center;
 }
 
 /* Disposición de los elementos */
@@ -30,6 +40,8 @@ nav ul {
     display: flex;
     justify-content: space-between;
     list-style: none;
+    vertical-align: middle;
+    align-items: center;
 }
 
 /* Elementos del menú */
@@ -43,26 +55,25 @@ nav ul li a{
 
 /* Delinear al pasar el mouse */
 nav ul li a:hover{
-    color: #D85116;
     text-decoration: underline;
 }
 
 .slider-box {
-    width: 100vw;
-    height: 100vh;
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    height: 100vh; /* Ocupa todo el alto de la pantalla */
     overflow: hidden;
     position: relative;
 }
 
 .slider-box ul {
     display: flex;
-    width: 500%;
+    width: 500%; /* 5 imágenes → 500% */
     height: 100%;
     animation: slide 20s infinite alternate ease-in-out;
 }
 
 .slider-box li {
-    width: 100vw;
+    width: 100vw; /* Cada imagen ocupa el 100% del viewport */
     height: 100vh;
     list-style: none;
 }
@@ -70,32 +81,7 @@ nav ul li a:hover{
 .slider-box img {
     width: 100vw;
     height: 100vh;
-    object-fit: cover;
-}
-
-/* Sección de sinopsis a pantalla completa con fondo */
-.sinopsis-container {
-    width: 100vw;
-    height: 100vh; /* Ocupa toda la pantalla */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-    color: white;
-    background-image: url('Imagenes/Background.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* Opcional: Mejor contraste del texto */
-.sinopsis-container h2 {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 80%;
-    font-size: 24px;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
 }
 
 @keyframes slide {
@@ -112,4 +98,25 @@ nav ul li a:hover{
     95% { margin-left: -300vw; }
 
     100% { margin-left: -400vw; }
+}
+
+/* Fondo SOLO en el div de la sinopsis */
+.sinopsis-container {
+    width: 100%;
+    min-height: 100vh; /* Ajusta la altura como prefieras */
+    padding: 50px;
+    background-image: url('Images/Background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+}
+
+/* Opcional: para que el texto tenga mejor contraste */
+.sinopsis-container h2 {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: inline-block;
+    border-radius: 10px;
 }
