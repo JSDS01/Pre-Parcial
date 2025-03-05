@@ -4,6 +4,49 @@
     box-sizing: border-box;
 }
 
+/* Encabezado */
+header {
+    background-color: #333;
+    color: #F7DC11;
+    text-align: center;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Imágenes de encabezado*/
+header img {
+    height: 120px;
+    width: auto;
+}
+
+/* Menú de navegación */
+nav {
+    background-color: transparent;
+}
+
+/* Disposición de los elementos */
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+/* Elementos del menú */
+nav ul li a{
+    color: #F7DC11;
+    padding: 1em;
+    font-size: 1.5em;
+    text-decoration: none;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Delinear al pasar el mouse */
+nav ul li a:hover{
+    color: #D85116;
+    text-decoration: underline;
+}
+
 .slider-box {
     width: 100vw;
     height: 100vh;
