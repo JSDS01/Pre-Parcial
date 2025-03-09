@@ -31,6 +31,7 @@
             </ul>
         </nav>
     </header>
+
     <!-- Carrusel -->
     <div id="Inicio" class="slider-box">
         <button class="prev">&#10094;</button> <!-- Botón izquierdo -->
@@ -47,7 +48,7 @@
     </div>
 
     <!-- Sinopsis con fondo y pantalla completa -->
-    <div class="sinopsis-container">
+    <div id="Sinopsis" class="sinopsis-container">
         <h2>
             Marty McFly, un adolescente de Hill Valley, viaja accidentalmente al año 1955 en un
             DeLorean modificado por el excéntrico científico Dr. Emmett Brown. Atrapado en el pasado, Marty se encuentra
@@ -63,9 +64,16 @@
             para asegurar su regreso al futuro y restaurar el orden en su línea temporal.
         </h2>
     </div>
+    <script>
+        window.addEventListener("scroll", function() {
+            let scrollY = window.scrollY;
+            let newSize = 100 + (scrollY / 200); // Tamaño inicial - Ajusta la velocidad del zoom
+            document.querySelector(".sinopsis-container").style.backgroundSize = `${newSize}%`;
+        });
+    </script>
 
     <!-- Galería -->
-    <div class="galeria-container">
+    <div id="Galeria" class="galeria-container">
         <h2 class="galeria-titulo">Conoce a nuestras estrellas</h2>
         <div class="galeria">
             <div class="galeria-item">
@@ -160,23 +168,29 @@
     </div>
 
     <div id="Contacto" class="contacto-container">
-        <h2>Contáctenos</h2>
-        <form action="" method="get">
-            <input type="text" value="" placeholder="Nombre" maxlength="100" minlength="0" name="nombre" id="nombre"
+        <form class="form-container" action="" method="get">
+            <div class="form-container-left">
+                <h2>Contáctenos</h2>
+                <input type="text" value="" placeholder="Nombre" maxlength="100" minlength="0" name="nombre" id="nombre"
                 size="100">
-            <input type="text" value="" placeholder="Apellido" maxlength="100" minlength="0" name="apellido"
-                id="apellido" size="100">
-            <input type="email" value="" placeholder="correo" maxlength="100" minlength="0" name="correo" id="correo"
-                size="100">
-            <input type="number" value="" placeholder="Teléfono" maxlength="100" minlength="0" name="correo" id="numero"
-                size="100">
-            <input type="submit" value="Contactar">
+                <input type="text" value="" placeholder="Apellido" maxlength="100" minlength="0" name="apellido"
+                    id="apellido" size="100">
+                <input type="email" value="" placeholder="correo" maxlength="100" minlength="0" name="correo" id="correo"
+                    size="100">
+                <input type="text" value="" placeholder="Teléfono" maxlength="100" minlength="0" name="telefono" id="telefono"
+                    size="100">
+            </div>
+            <div class="form-container-right">
+                <input class="form-container-reseña" type="text" value="" placeholder="Reseñanos..." maxlength="300" minlength="0" name="reseña" id="reseña" size="300">
+            </div>
         </form>
         <!--Mapa link de universal-->
-        <iframe
+        <div class="mapa">
+            <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13526517.098367564!2d-137.86468505859375!3d34.136815058265334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2be4f253238cf%3A0xd3dd5027799c9a71!2sLos%20Estudios%20Universal%20Hollywood!5e0!3m2!1ses-419!2sco!4v1741492504340!5m2!1ses-419!2sco"
             width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
 
     <footer>
