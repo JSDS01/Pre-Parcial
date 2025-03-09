@@ -40,28 +40,49 @@ nav ul {
     display: flex;
     justify-content: space-between;
     list-style: none;
-    vertical-align: middle;
+    vertical-align: auto;
     align-items: center;
+    gap: 3em;
+    margin-right: 100px;
+}
+
+nav ul li {
+    position: relative;
 }
 
 /* Elementos del menú */
 nav ul li a{
+    font-family: "Doto", sans-serif;
+    font-weight: 900;
     color: #F7DC11;
-    padding: 1em;
     font-size: 1.5em;
     text-decoration: none;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    position: inherit;
+    display: inline-block;
 }
 
 /* Delinear al pasar el mouse */
-nav ul li a:hover{
-    text-decoration: underline;
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #F7DC11;
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 /* Contenedor del carrusel */
 .slider-box {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     position: relative;
 }
@@ -69,7 +90,7 @@ nav ul li a:hover{
 /* Contenedor de las imágenes */
 .slider {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
 }
 
@@ -186,4 +207,42 @@ nav ul li a:hover{
 /* Efecto hover */
 .galeria img:hover {
     transform: scale(1.05);
+}
+
+/* Contenedor del form de contacto */
+.contacto-container {
+    width: 100%;
+    background-color: rgb(45, 156, 206);
+    color: rgb(247, 220, 17);
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #2D9CCE;
+    color: #F7DC11;
+    text-align: center;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    vertical-align: auto;
+}
+
+.redes-sociales-container {
+    display: inline-flex;
+    flex-shrink: 1;
+    flex-grow: 0;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-media-icon {
+    background-color: #F7DC11;
+    border-radius: 100%;
+    padding: 10px;
 }
