@@ -158,6 +158,7 @@ nav ul li a:hover::after {
 .sinopsis-container {
     width: 100%;
     height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: flex-end; /* Mueve el texto a la parte oscura */
@@ -189,7 +190,7 @@ nav ul li a:hover::after {
     text-align: center;
 }
 
-/* Titulo de la galeria */
+/* Titulo de la galería */
 .galeria-titulo {
     font-size:100px; /* Ajusta según lo necesites */
 }

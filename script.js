@@ -38,3 +38,4 @@ document.addEventListener("DOMContentLoaded", () => {
     nextBtn.addEventListener("click", resetAutoSlide);
     prevBtn.addEventListener("click", resetAutoSlide);
 });
+
