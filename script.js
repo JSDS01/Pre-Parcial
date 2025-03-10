@@ -39,3 +39,18 @@ document.addEventListener("DOMContentLoaded", () => {
     prevBtn.addEventListener("click", resetAutoSlide);
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const elementos = document.querySelectorAll(".animado");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("mostrar");
+            }
+        });
+    }, { threshold: 0.5 }); // Se activa cuando el 50% del elemento es visible
+
+    elementos.forEach(elemento => {
+        observer.observe(elemento);
+    });
+});

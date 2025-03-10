@@ -4,6 +4,17 @@
     box-sizing: border-box;
 }
 
+.animado {
+    opacity: 0; /* Inicialmente invisible */
+    transform: scale(0.9); /* Más pequeño */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.mostrar {
+    opacity: 1;
+    transform: scale(1);
+}
+
 html {
     scroll-behavior: smooth; /* Animación suave al scrollear*/
 }
@@ -59,7 +70,7 @@ nav ul li a{
     font-family: "Doto", sans-serif;
     font-weight: 900;
     color: #F7DC11;
-    font-size: 1.5em;
+    font-size: 1.2vw;
     text-decoration: none;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     position: inherit;
@@ -101,7 +112,8 @@ nav ul li a:hover::after {
 /* Lista de imágenes */
 .slider ul {
     display: flex;
-    width: auto; /* Ajusta el ancho automáticamente */
+    width: 100vw; /* Ajusta el ancho automáticamente */
+    height: 100vh;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -176,7 +188,7 @@ hr{
     justify-content: flex-end; /* Mueve el texto a la parte oscura */
     color: white;
     background: linear-gradient(to right, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 0.9) 100%),
-                url('Images/Background.png');
+                url('Images/BackgroundPrueba.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -277,6 +289,10 @@ hr{
     padding: 20px;
 }
 
+.contacto-container h2{
+    font-size: 3vw;
+}
+
 /* Formulario de contacto completo */
 .form-container {
     display: flex;
@@ -291,10 +307,6 @@ hr{
     display: flex;
     flex-direction: column; /* Hacer formulario estilo lista */
     justify-content: space-between;
-}
-
-.form-container-left h2 {
-    font-size: 50px;
 }
 
 /* Formulario de contacto reseña */
