@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth; /* Animación suave al scrollear*/
+}
+
 /* Encabezado */
 header {
     background-color: transparent;
@@ -171,7 +175,6 @@ hr{
     align-items: center;
     justify-content: flex-end; /* Mueve el texto a la parte oscura */
     color: white;
-    text-align: justify;
     background: linear-gradient(to right, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 0.9) 100%),
                 url('Images/Background.png');
     background-size: cover;
@@ -179,12 +182,13 @@ hr{
     background-repeat: no-repeat;
     background-attachment: fixed;
     transition: transform 0.3s ease-out;
+    overflow: hidden;
 }
 
 .sinopsis-container h2 {
     text-align: start;
     width: 25%;
-    font-size: 1.4em;
+    font-size: 1.2vw;
     padding: 50px;
     text-align: justify;
 }
@@ -204,6 +208,7 @@ hr{
     font-size:100px; /* Ajusta según lo necesites */
 }
 
+/* Disposición de las imagenes */
 .galeria {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 6 columnas */
@@ -336,20 +341,6 @@ hr{
     cursor: pointer;
 }
 
-
-/* Sección del mapa */
-.mapa {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-    margin-right: 5%;
-    background-color: black;
-    padding: 5px; /* Espacio entre el borde y el iframe */  
-    display: inline-block; /* Ajusta el tamaño del div al contenido */
-    border-radius: 10px; /* Esquinas redondeadas */
-    height: 312px;
-}
-
 /* Footer */
 footer {
     background-color:#2B5279;
@@ -368,25 +359,52 @@ footer {
 
 .secuelas-container{
     color: #DACAAB;
-    font-size: 50px;
+    font-size: 2vw;
 }
 
 .secuelas-container img{
-    width: 500px;
-    height: 700px;
+    height: 300px;
+    width: auto;
+}
+
+.contactos-especiales-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-end;
 }
 
 .redes-sociales-container {
-    position: absolute;
     top: 10px; /* Ajusta la distancia desde la parte superior */
     right: 20px; /* Ajusta la distancia desde la derecha */
     display: flex;
     gap: 15px; /* Espaciado entre los iconos */
+    padding: 20px 0px;
 }
 
-.social-media-icon {
+.social-media-icon-container {
     background-color: #F7DC11;
     border-radius: 100%;
     padding: 10px;
+    height: 85%;
 }
 
+.social-media-icon {
+    height: 100%;
+    width: auto;
+}
+
+/* Sección del mapa */
+.mapa {
+    display: flex;
+    align-items: center;
+    margin-right: 5%;
+    background-color: #1E2527;
+    padding: 5px; /* Espacio entre el borde y el iframe */  
+    display: inline-block; /* Ajusta el tamaño del div al contenido */
+    border-radius: 10px; /* Esquinas redondeadas */
+}
+
+.mapa iframe{
+    width: auto;
+}
