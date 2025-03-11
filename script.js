@@ -1,3 +1,4 @@
+/* Script */
 document.addEventListener("DOMContentLoaded", () => {
     const slider = document.querySelector(".slider ul");
     const prevBtn = document.querySelector(".prev");
@@ -39,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
     prevBtn.addEventListener("click", resetAutoSlide);
 });
 
+/* Reconocer los elementos que estén dentro de la pantalla*/
 document.addEventListener("DOMContentLoaded", function () {
     const elementos = document.querySelectorAll(".animado");
 

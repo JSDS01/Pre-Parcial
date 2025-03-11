@@ -22,7 +22,7 @@ html {
 /* Encabezado */
 header {
     background-color: transparent;
-    color: #F7DC11;
+    color: #FFD95F;
     text-align: center;
     padding: 1em;
     display: flex;
@@ -69,7 +69,7 @@ nav ul li {
 nav ul li a{
     font-family: "Doto", sans-serif;
     font-weight: 900;
-    color: #F7DC11;
+    color: #FFD95F;
     font-size: 1.2vw;
     text-decoration: none;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -135,13 +135,16 @@ nav ul li a:hover::after {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
+    background: rgba(0, 0, 0, 0.0);
+    color: #FFD95F;
     border: none;
-    font-size: 2rem;
+    font-size: 3rem;
     padding: 10px;
     cursor: pointer;
     z-index: 10;
+    margin-left: 1%;
+    margin-right: 1%;
+    transition: 0.3s ease;
 }
 
 /* Posición de los botones */
@@ -150,9 +153,10 @@ nav ul li a:hover::after {
 
 /* Efecto al pasar el mouse */
 .slider-box button:hover {
-    background: rgba(0, 0, 0, 0.8);
+    font-size: 3.5rem;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
 }
-
 
 @keyframes slide {
     0% { margin-left: 0vw; }
@@ -173,7 +177,7 @@ nav ul li a:hover::after {
 /*Linea de separacion*/
 hr{
     height: 20px;
-    background-color:#1E2527;
+    background-color:#ffcc00;
     border: transparent;
 
 }
@@ -210,8 +214,8 @@ hr{
     width: 100%;
     min-height: 100vh;
     padding: 50px;
-    background-color: #C05212;
-    color: #DACAAB;
+    background-color: #BE3144;
+    color: #FFD95F;
     text-align: center;
 }
 
@@ -281,64 +285,86 @@ hr{
 /* Contenedor del form de contacto */
 .contacto-container {
     width: 100%;
-    background-color: #2B5279;
-    color: #DACAAB;
-    text-align: center;
-    display: flex;
-    align-items: stretch;
+    margin: auto;
     padding: 20px;
+    background-color: #3674B5;
+    color: #FFD95F;
+    text-align: center;
 }
 
 .contacto-container h2{
-    font-size: 3vw;
+    font-size: 3em;
 }
 
 /* Formulario de contacto completo */
 .form-container {
     display: flex;
-    align-items: stretch;
-    padding: 20px;
-    gap: 20px;
-    margin-left: 5%;
+    justify-content: space-between;
+    padding-top: 20px;
 }
 
-/* Formulario de contacto izquierdo */
+.form-container-left, .form-container-right {
+    width: 48%;
+}
+
 .form-container-left {
     display: flex;
-    flex-direction: column; /* Hacer formulario estilo lista */
-    justify-content: space-between;
-}
-
-/* Formulario de contacto reseña */
-.form-container-right {
-    display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.form-container input {
+.form-container-left-name-group {
+    display: flex;
+    justify-content: space-between;
+    width: 82%;
+    margin-top: 20px;
+}
+
+.form-container-left-name-group input {
+    width: 100%;
+}
+
+.form-container-left input {
     display: block;
-    width: 100%; /* Ocupa el ancho completo del div */
+    width: 80%; /* Ocupa el ancho completo del div */
     padding: 20px; /* Grosor de cada input*/
-    margin: 5px; /* Espaciado entre inputs */
+    margin: 10px; /* Espaciado entre inputs */
     border-radius: 10px;
     border: none;
 }
 
-.form-container-right input{
-    width: 40%;
-    height: 75%; /* Extender la reseña hasta el formulario */
-    display: flex;
-    flex-direction: column;
+.form-container-left input[type="text"] {
+    display: inline-block;
+    width: 50%;;
 }
 
-/* Botón del formulario final */
-.form-container-submit {
-    width: 10%;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 5px;
+.form-container-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-container-right img {
+    height: 40vh;
+}
+
+.form-container-reseña {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vh;
+}
+
+.form-container-reseña textarea {
+    display: block;
+    width: 100%;
+    height: 80%;
+    padding: 20px;
+    border-radius: 10px;
     border: none;
-    background-color: rgb(247, 220, 17);
+    text-align: left;
+    resize: none;
+    font-size: 1.2em;
 }
 
 .boton-enviar {
@@ -346,11 +372,16 @@ hr{
     width: fit-content; /* Tamaño basado en el texto */
     margin: 20px auto; /* Espaciado y centrado */
     padding: 10px 20px;
-    font-size: 16px;/* Tamaño letra*/
-    background-color: #ffcc00;
+    font-size: 1.2em;/* Tamaño letra*/
+    background-color: #FFD95F;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.boton-enviar:hover {
+    background-color: #E52020;
 }
 
 .rating {
@@ -367,18 +398,20 @@ hr{
     font-size: 5rem;
     color: #ccc;
     cursor: pointer;
+    transition: 0.3s ease-out;
 }
 
 .rating input:checked ~ label,
 .rating label:hover,
 .rating label:hover ~ label {
     color: gold;
+    transform: scale(1.1);
 }
 
 /* Footer */
 footer {
-    background-color:#2B5279;
-    color: #F7DC11;
+    background-color:#3674B5;
+    color: #ffcc00;
     text-align: center;
     padding: 1em;
     display: flex;
@@ -391,14 +424,28 @@ footer {
     vertical-align: auto;
 }
 
-.secuelas-container{
-    color: #DACAAB;
+.secuelas-container {
+    color: #FFD95F;
     font-size: 2vw;
+    margin-left: 2%;
 }
 
 .secuelas-container img{
+    margin-top: 20px;
     height: 300px;
     width: auto;
+    transition: 0.3s ease-in-out;
+}
+
+.secuelas-container img:hover {
+    border: 4px solid #FFD95F;
+    transform: scale(1.1);
+}
+
+.informacion-legal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
 }
 
 .contactos-especiales-container {
@@ -406,6 +453,7 @@ footer {
     flex-direction: column;
     align-content: center;
     justify-content: flex-end;
+    margin-right: 2%;
 }
 
 .redes-sociales-container {
@@ -417,10 +465,16 @@ footer {
 }
 
 .social-media-icon-container {
-    background-color: #F7DC11;
+    background-color: #FFD95F;
     border-radius: 100%;
     padding: 10px;
     height: 85%;
+    transition: 0.3s ease-out;
+}
+
+.social-media-icon-container:hover {
+    background-color: #E52020;
+    transform: scale(1.1);
 }
 
 .social-media-icon {
@@ -433,12 +487,18 @@ footer {
     display: flex;
     align-items: center;
     margin-right: 5%;
-    background-color: #1E2527;
+    background-color: #FFD95F;
     padding: 5px; /* Espacio entre el borde y el iframe */  
     display: inline-block; /* Ajusta el tamaño del div al contenido */
     border-radius: 10px; /* Esquinas redondeadas */
+    transition: 0.3s ease-out;
+}
+
+.mapa:hover {
+    background-color: #E52020;
 }
 
 .mapa iframe{
     width: auto;
+    border-radius: 10px
 }
