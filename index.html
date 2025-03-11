@@ -10,58 +10,229 @@
     <!--Vincular scripts al html-->
     <script src="script.js" defer></script>
     <link rel="icon" href="Images/BackToFutureIcon.png">
+    <!--Fuente para el texto del navbar-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet">
 </head>
-<!--COLORES: 2D9CCE - D85116 - F7DC11-->
 
 <body>
-    <header>
+    <header class="animado">
         <!--Logo de la página-->
         <img src="Images/BackToFutureBigIcon.png" alt="Back To The Future Logo">
         <!-- Barra de navegación -->
         <nav>
             <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Sinopsis</a></li>
-                <li><a href="#">Galería</a></li>
-                <li><a href="#">Contacto</a></li>
+                <li><a href="#Inicio">Inicio</a></li>
+                <li><a href="#Sinopsis">Sinopsis</a></li>
+                <li><a href="#Galeria">Galería</a></li>
+                <li><a href="#Contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
+
     <!-- Carrusel -->
-        <div class="slider-box">
-            <button class="prev">&#10094;</button> <!-- Botón izquierdo -->
-            <div class="slider">
-                <ul>
-                    <li><img src="Images/Carrusel1.jpg" alt="Imagen 1"></li>
-                    <li><img src="Images/Carrusel2.webp" alt="Imagen 2"></li>
-                    <li><img src="Images/Carrusel3.jpg" alt="Imagen 3"></li>
-                    <li><img src="Images/Carrusel4.jpg" alt="Imagen 4"></li>
-                    <li><img src="Images/Carrusel5.jpg" alt="Imagen 5"></li>
-                </ul>
-            </div>
-            <button class="next">&#10095;</button> <!-- Botón derecho -->
+    <div id="Inicio" class="slider-box">
+        <button class="prev">&#10094;</button> <!-- Botón izquierdo -->
+        <div class="slider">
+            <ul>  <!-- Imagenes del carrusel -->
+                <li><img src="Images/Carousel/Carrusel1.jpg" alt="Imagen 1"></li>
+                <li><img src="Images/Carousel/Carrusel2.jpg" alt="Imagen 2"></li>
+                <li><img src="Images/Carousel/Carrusel3.jpg" alt="Imagen 3"></li>
+                <li><img src="Images/Carousel/Carrusel4.jpg" alt="Imagen 4"></li>
+                <li><img src="Images/Carousel/Carrusel5.jpg" alt="Imagen 5"></li>
+                <li><img src="Images/Carousel/Carrusel6.jpg" alt="Imagen 6"></li>
+                <li><img src="Images/Carousel/Carrusel7.jpeg" alt="Imagen 7"></li>
+                <li><img src="Images/Carousel/Carrusel8.png" alt="Imagen 8"></li>
+                <li><img src="Images/Carousel/Carrusel9.jpg" alt="Imagen 9"></li>
+                <li><img src="Images/Carousel/Carrusel10.jpg" alt="Imagen 10"></li>
+            </ul>
         </div>
+        <button class="next animado">&#10095;</button> <!-- Botón derecho -->
+    </div>
+
+    <!-- Linea divisora-->
+    <hr>
 
     <!-- Sinopsis con fondo y pantalla completa -->
-    <div class="sinopsis-container">
-        <h2>
-            Marty McFly, un adolescente de Hill Valley, viaja accidentalmente al año 1955 en un 
-            DeLorean modificado por el excéntrico científico Dr. Emmett Brown. Atrapado en el pasado, Marty se encuentra 
-            con sus jóvenes padres y, sin querer, interfiere con su historia de amor, poniendo en riesgo su propia existencia. 
-            Con la ayuda del Doc Brown de 1955, Marty debe asegurarse de que sus padres se enamoren mientras busca la manera de 
-            regresar al futuro antes de que sea demasiado tarde.
+    <div id="Sinopsis" class="sinopsis-container">
+        <h2 class="animado">
+            Relata las aventuras de Marty McFly, un adolescente rebelde e impulsivo que vive con sus padres y viaja
+            accidentalmente al pasado desde 1985, su época, a 1955, la época en que sus padres se conocieron.
+            Finalmente, cambia los hechos específicos de la línea original de tiempo en que sus padres se conocieron y
+            enamoraron. Debido a esto, Marty debe recurrir a la ayuda del Dr. Emmett Brown para reunir a sus padres de
+            nuevo, asegurando su propia existencia y la de sus hermanos.
         </h2>
     </div>
-<!-- Galería -->
-<div class="galeria-container">
-    <h2>Conoce a nuestras estrellas</h2>
-    <div class="galeria">
-        <img src="Images/Galeria1.jpg" alt="Galería 1">
-        <img src="Images/Galeria2.jpeg" alt="Galería 2">
-        <img src="Images/Galeria3.jpg" alt="Galería 3">
-        <img src="Images/Galeria4.jpg" alt="Galería 4">
-        <img src="Images/Galeria5.jpg" alt="Galería 5">
+    <!--Script para hacer zoom a la Imagen-->
+    <script>
+        window.addEventListener("scroll", function () {
+            let scrollY = window.scrollY;
+            let newSize = 100 + (scrollY / 100); // Tamaño inicial - Ajusta la velocidad del zoom
+            document.querySelector(".sinopsis-container").style.backgroundSize = `${newSize}%`;
+        });
+    </script>
+
+    <!-- Linea divisora-->
+    <hr>
+
+    <!-- Galería -->
+    <div id="Galeria" class="galeria-container">
+        <h2 class="galeria-titulo animado">Conoce a nuestras estrellas</h2>
+        <div class="galeria">
+            <div class="galeria-item animado">
+                <img src="Images/Cast/Galeria1.jpg" alt="Galería 1">
+                <div class="galeria-texto">Christopher Lloyd como Dr. Emmett Brown</div>
+            </div>
+            <div class="galeria-item animado">
+                <img src="Images/Cast/Galeria2.jpeg" alt="Galería 2">
+                <div class="galeria-texto">Michael J. Fox como Marty McFly</div>
+            </div>
+            <div class="galeria-item animado">
+                <img src="Images/Cast/robert-zemeckis.jpg" alt="Galería 3">
+                <div class="galeria-texto">Director Robert Zemeckis</div>
+            </div>
+            <div class="galeria-item animado">
+                <img src="Images/Cast/Galeria4.jpg" alt="Galería 4">
+                <div class="galeria-texto">Crispin Glover como George McFly</div>
+            </div>
+            <div class="galeria-item animado">
+                <img src="Images/Cast/Galeria5.jpg" alt="Galería 5">
+                <div class="galeria-texto">Lea Thompson como Lorraine McFly</div>
+            </div>
+            <div class="galeria-item animado">
+                <img src="Images/Cast/Biff Tannen.jpg" alt="Galería 6">
+                <div class="galeria-texto">Thomas F. Wilson como Biff Tannen</div>
+            </div>
+            <div class="galeria-item animado">
+                <img src="Images/Cast/Jennifer_Parker.webp" alt="Galería 7">
+                <div class="galeria-texto">Claudia Wells como Jennifer Parker</div>
+            </div>
+            <div class="galeria-item animado">
+                <img src="Images/Cast/Sr. Strickland.webp" alt="Galería 8">
+                <div class="galeria-texto">James Tolkan como Sr. Strickland</div>
+            </div>
+            <div class="galeria-item animado">
+                <img src="Images/Cast/Linda McFly.jpg" alt="Galería 9">
+                <div class="galeria-texto">Wendie Jo Sperber como Linda McFly</div>
+            </div>
+            <div class="galeria-item animado">
+                <img src="Images/Cast/Dave McFly.jpg" alt="Galería 10">
+                <div class="galeria-texto">Marc McClure como Dave McFly</div>
+            </div>
+            <div class="galeria-item animado">
+                <img src="Images/Cast/Goldie Wilson.webp" alt="Galería 11">
+                <div class="galeria-texto">Donald Fullilove como Goldie Wilson</div>
+            </div>
+            <div class="galeria-item animado">
+                <img src="Images/Cast/Marvin Berry.jpg" alt="Galería 12">
+                <div class="galeria-texto">Harry Waters Jr como Marvin Berry</div>
+            </div>
+        </div>
     </div>
-</div>
+
+    <hr><!-- Linea divisora-->
+
+    <!-- Contacto -->
+    <div id="Contacto" class="contacto-container">
+        <!-- Informacion del usuario -->
+        <form class="form-container" action="" method="get">
+            <div class="form-container-left animado">
+                <h2>Contáctenos</h2>
+                <div class="form-container-left-name-group">
+                    <input type="text" value="" placeholder="Nombre" maxlength="100" minlength="0" name="nombre" id="nombre" size="100">
+                    <input type="text" value="" placeholder="Apellido" maxlength="100" minlength="0" name="apellido" id="apellido" size="100">
+                </div>
+                <input type="email" value="" placeholder="Correo" maxlength="100" minlength="0" name="correo" id="correo" size="100">
+                <input type="tel" value="" placeholder="Teléfono" maxlength="100" minlength="0" name="telefono" id="telefono" size="100">
+                <div><!--Boton de enviar-->
+                    <button class="boton-enviar">Contactar</button>
+                </div>
+            </div>
+            <div class="form-container-right ">
+                <div class="animado"><img src="Images/Peliculas/bttf1.webp" alt=""></div>
+                <div class="form-container-reseña">
+                    <textarea class="animado" type="text" value="" placeholder="Reseñanos..." maxlength="300" minlength="0" name="reseña" id="reseña" size="300"></textarea>
+                    <!-- Estrelleas de calificaion -->
+                    <div class="rating animado">
+                        <input type="radio" id="star5" name="rating" value="5">
+                        <label for="star5">★</label>
+                        <input type="radio" id="star4" name="rating" value="4">
+                        <label for="star4">★</label>
+                        <input type="radio" id="star3" name="rating" value="3">
+                        <label for="star3">★</label>
+                        <input type="radio" id="star2" name="rating" value="2">
+                        <label for="star2">★</label>
+                        <input type="radio" id="star1" name="rating" value="1">
+                        <label for="star1">★</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <!-- Posters que redireccionan a las secuelas -->
+        <div class="secuelas-container animado">
+            <h2>Sigue la historia</h2>
+            <a href="https://www.netflix.com/co/title/60010111"><img src="Images/Peliculas/bttf2.jpg" alt="BTTF2"></a>
+            <a href="https://www.netflix.com/co/title/60024059"><img src="Images/Peliculas/bttf3.jpg" alt="BTTF3"></a>
+        </div>
+
+        <!-- Información legal -->
+        <div class="informacion-legal-container animado">
+            <p class="">Copyright © 2025 Back to the Future. Todos los derechos reservados.</p>
+            <p class="">Desarrollado por: Juan Camilo Ruiz - Joel Sebastian Duarte
+        </div>
+
+        <!-- Links de redes sociales -->
+        <div class="contactos-especiales-container animado">
+            <div class="redes-sociales-container">
+                <a class="social-media-icon-container" href="https://www.facebook.com/BTTF" target="_blank">
+                    <svg class="social-media-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50"
+                        height="50" viewBox="0 0 24 24">
+                        <path
+                            d="M16.403,9H14V7c0-1.032,0.084-1.682,1.563-1.682h0.868c0.552,0,1-0.448,1-1V3.064c0-0.523-0.401-0.97-0.923-1.005 C15.904,2.018,15.299,1.999,14.693,2C11.98,2,10,3.657,10,6.699V9H8c-0.552,0-1,0.448-1,1v2c0,0.552,0.448,1,1,1l2-0.001V21 c0,0.552,0.448,1,1,1h2c0.552,0,1-0.448,1-1v-8.003l2.174-0.001c0.508,0,0.935-0.381,0.993-0.886l0.229-1.996 C17.465,9.521,17.001,9,16.403,9z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="social-media-icon-container" href="https://x.com/BacktotheFuture" target="_blank">
+                    <svg class="social-media-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50"
+                        height="50" viewBox="0 0 30 30">
+                        <path
+                            d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="social-media-icon-container" href="https://www.instagram.com/back_to_the_future_trilogy"
+                    target="_blank">
+                    <svg class="social-media-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50"
+                        height="50" viewBox="0 0 50 50">
+                        <path
+                            d="M 16 3 C 8.83 3 3 8.83 3 16 L 3 34 C 3 41.17 8.83 47 16 47 L 34 47 C 41.17 47 47 41.17 47 34 L 47 16 C 47 8.83 41.17 3 34 3 L 16 3 z M 37 11 C 38.1 11 39 11.9 39 13 C 39 14.1 38.1 15 37 15 C 35.9 15 35 14.1 35 13 C 35 11.9 35.9 11 37 11 z M 25 14 C 31.07 14 36 18.93 36 25 C 36 31.07 31.07 36 25 36 C 18.93 36 14 31.07 14 25 C 14 18.93 18.93 14 25 14 z M 25 16 C 20.04 16 16 20.04 16 25 C 16 29.96 20.04 34 25 34 C 29.96 34 34 29.96 34 25 C 34 20.04 29.96 16 25 16 z">
+                        </path>
+                    </svg>
+                </a>
+                <a class="social-media-icon-container" href="https://www.youtube.com/@BacktotheFutureTrilogy"
+                    target="_blank">
+                    <svg class="social-media-icon" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50"
+                        height="50" viewBox="0 0 50 50">
+                        <path
+                            d="M 44.898438 14.5 C 44.5 12.300781 42.601563 10.699219 40.398438 10.199219 C 37.101563 9.5 31 9 24.398438 9 C 17.800781 9 11.601563 9.5 8.300781 10.199219 C 6.101563 10.699219 4.199219 12.199219 3.800781 14.5 C 3.398438 17 3 20.5 3 25 C 3 29.5 3.398438 33 3.898438 35.5 C 4.300781 37.699219 6.199219 39.300781 8.398438 39.800781 C 11.898438 40.5 17.898438 41 24.5 41 C 31.101563 41 37.101563 40.5 40.601563 39.800781 C 42.800781 39.300781 44.699219 37.800781 45.101563 35.5 C 45.5 33 46 29.398438 46.101563 25 C 45.898438 20.5 45.398438 17 44.898438 14.5 Z M 19 32 L 19 18 L 31.199219 25 Z">
+                        </path>
+                    </svg>
+                </a>
+            </div>
+
+            <!--Mapa link de universal-->
+            <div class="mapa">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26650595.925337598!2d-115.001601!3d35.37434!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2be4f253238cf%3A0xd3dd5027799c9a71!2sLos%20Estudios%20Universal%20Hollywood!5e0!3m2!1ses-419!2sco!4v1741619946162!5m2!1ses-419!2sco"
+                    width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </footer>
+</body>
 
 </html>

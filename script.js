@@ -1,3 +1,4 @@
+/* Script */
 document.addEventListener("DOMContentLoaded", () => {
     const slider = document.querySelector(".slider ul");
     const prevBtn = document.querySelector(".prev");
@@ -37,4 +38,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     nextBtn.addEventListener("click", resetAutoSlide);
     prevBtn.addEventListener("click", resetAutoSlide);
+});
+
+/* Reconocer los elementos que estén dentro de la pantalla*/
+document.addEventListener("DOMContentLoaded", function () {
+    const elementos = document.querySelectorAll(".animado");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("mostrar");
+            }
+        });
+    }, { threshold: 0.5 }); // Se activa cuando el 50% del elemento es visible
+
+    elementos.forEach(elemento => {
+        observer.observe(elemento);
+    });
 });

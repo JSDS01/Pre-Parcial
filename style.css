@@ -4,10 +4,25 @@
     box-sizing: border-box;
 }
 
+.animado {
+    opacity: 0; /* Inicialmente invisible */
+    transform: scale(0.9); /* Más pequeño */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.mostrar {
+    opacity: 1;
+    transform: scale(1);
+}
+
+html {
+    scroll-behavior: smooth; /* Animación suave al scrollear*/
+}
+
 /* Encabezado */
 header {
     background-color: transparent;
-    color: #F7DC11;
+    color: #FFD95F;
     text-align: center;
     padding: 1em;
     display: flex;
@@ -40,28 +55,49 @@ nav ul {
     display: flex;
     justify-content: space-between;
     list-style: none;
-    vertical-align: middle;
+    vertical-align: auto;
     align-items: center;
+    gap: 3em;
+    margin-right: 100px;
+}
+
+nav ul li {
+    position: relative;
 }
 
 /* Elementos del menú */
 nav ul li a{
-    color: #F7DC11;
-    padding: 1em;
-    font-size: 1.5em;
+    font-family: "Doto", sans-serif;
+    font-weight: 900;
+    color: #FFD95F;
+    font-size: 1.2vw;
     text-decoration: none;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    position: inherit;
+    display: inline-block;
 }
 
 /* Delinear al pasar el mouse */
-nav ul li a:hover{
-    text-decoration: underline;
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #F7DC11;
+    transition: width 0.4s ease, left 0.4s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
 }
 
 /* Contenedor del carrusel */
 .slider-box {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
     position: relative;
 }
@@ -69,14 +105,15 @@ nav ul li a:hover{
 /* Contenedor de las imágenes */
 .slider {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
 }
 
 /* Lista de imágenes */
 .slider ul {
     display: flex;
-    width: auto; /* Ajusta el ancho automáticamente */
+    width: 100vw; /* Ajusta el ancho automáticamente */
+    height: 100vh;
     transition: transform 0.5s ease-in-out;
 }
 
@@ -98,13 +135,16 @@ nav ul li a:hover{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
+    background: rgba(0, 0, 0, 0.0);
+    color: #FFD95F;
     border: none;
-    font-size: 2rem;
+    font-size: 3rem;
     padding: 10px;
     cursor: pointer;
     z-index: 10;
+    margin-left: 1%;
+    margin-right: 1%;
+    transition: 0.3s ease;
 }
 
 /* Posición de los botones */
@@ -113,9 +153,10 @@ nav ul li a:hover{
 
 /* Efecto al pasar el mouse */
 .slider-box button:hover {
-    background: rgba(0, 0, 0, 0.8);
+    font-size: 3.5rem;
+    margin-right: 0.5%;
+    margin-left: 0.5%;
 }
-
 
 @keyframes slide {
     0% { margin-left: 0vw; }
@@ -133,57 +174,331 @@ nav ul li a:hover{
     100% { margin-left: -400vw; }
 }
 
+/*Linea de separacion*/
+hr{
+    height: 20px;
+    background-color:#ffcc00;
+    border: transparent;
+
+}
+
 /* Fondo SOLO en el div de la sinopsis */
 .sinopsis-container {
     width: 100%;
-    min-height: 100vh; /* Ajusta la altura como prefieras */
-    padding: 50px;
-    background-image: url('Images/Background.png');
+    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Mueve el texto a la parte oscura */
+    color: white;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.7) 65%, rgba(0, 0, 0, 0.9) 100%),
+                url('Images/BackgroundPrueba.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: white;
-    text-align: center;
+    background-attachment: fixed;
+    transition: transform 0.3s ease-out;
+    overflow: hidden;
 }
 
-/* Opcional: para que el texto tenga mejor contraste */
 .sinopsis-container h2 {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    display: inline-block;
-    border-radius: 10px;
+    text-align: start;
+    width: 25%;
+    font-size: 1.2vw;
+    padding: 50px;
+    text-align: justify;
 }
 
 /* Contenedor de la galería */
 .galeria-container {
     width: 100%;
-    min-height: 100vh; /* Ocupar toda la pantalla */
+    min-height: 100vh;
     padding: 50px;
-    background-color: rgb(45, 156, 206);
-    color: rgb(247, 220, 17);
+    background-color: #BE3144;
+    color: #FFD95F;
     text-align: center;
 }
 
-/* Estilo de las imágenes dentro de la galería */
-.galeria {
-    display: flex;
-    flex-wrap: wrap; /* Permite que las imágenes se acomoden */
-    justify-content: center;
-    gap: 15px; /* Espacio entre imágenes */
-    margin-top: 20px;
+/* Titulo de la galería */
+.galeria-titulo {
+    font-size:100px; /* Ajusta según lo necesites */
 }
 
-/* Tamaño uniforme de las imágenes */
-.galeria img {
-    width: 250px; /* Ajusta según necesidad */
-    height: 300px;
-    object-fit: cover; /* Asegura que la imagen se ajuste sin deformarse */
+/* Disposición de las imagenes */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 6 columnas */
+    gap: 20px; /* Espacio entre imágenes */
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px; /* Ajusta el ancho máximo */
+    margin: auto;
+}
+
+/* Estilo de cada imagen */
+.galeria-item {
+    position: relative;
+    width: 200px; /* Mantiene el tamaño original */
+    height: 280px; /* Ajusta según tus imágenes */
+    overflow: hidden;
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
+}
+
+/* Alternar margen en filas impares */
+.galeria-item:nth-child(odd) {
+    margin-top: 20px; /* Empuja hacia abajo las imágenes impares */
+}
+
+/* Estilo de las imágenes */
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Texto sobre la imagen */
+.galeria-texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 /* Efecto hover */
-.galeria img:hover {
+.galeria-item:hover img {
+    filter: blur(5px);
     transform: scale(1.05);
+}
+
+.galeria-item:hover .galeria-texto {
+    opacity: 1;
+}
+
+/* Contenedor del form de contacto */
+.contacto-container {
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    background-color: #3674B5;
+    color: #FFD95F;
+    text-align: center;
+}
+
+.contacto-container h2{
+    font-size: 3em;
+}
+
+/* Formulario de contacto completo */
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.form-container-left, .form-container-right {
+    width: 48%;
+}
+
+.form-container-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-container-left-name-group {
+    display: flex;
+    justify-content: space-between;
+    width: 82%;
+    margin-top: 20px;
+}
+
+.form-container-left-name-group input {
+    width: 100%;
+}
+
+.form-container-left input {
+    display: block;
+    width: 80%; /* Ocupa el ancho completo del div */
+    padding: 20px; /* Grosor de cada input*/
+    margin: 10px; /* Espaciado entre inputs */
+    border-radius: 10px;
+    border: none;
+}
+
+.form-container-left input[type="text"] {
+    display: inline-block;
+    width: 50%;;
+}
+
+.form-container-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-container-right img {
+    height: 40vh;
+}
+
+.form-container-reseña {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vh;
+}
+
+.form-container-reseña textarea {
+    display: block;
+    width: 100%;
+    height: 80%;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
+    text-align: left;
+    resize: none;
+    font-size: 1.2em;
+}
+
+.boton-enviar {
+    display: block; /* Para que ocupe una línea completa */
+    width: fit-content; /* Tamaño basado en el texto */
+    margin: 20px auto; /* Espaciado y centrado */
+    padding: 10px 20px;
+    font-size: 1.2em;/* Tamaño letra*/
+    background-color: #FFD95F;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.boton-enviar:hover {
+    background-color: #E52020;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 5rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: 0.3s ease-out;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: gold;
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    background-color:#3674B5;
+    color: #ffcc00;
+    text-align: center;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    vertical-align: auto;
+}
+
+.secuelas-container {
+    color: #FFD95F;
+    font-size: 2vw;
+    margin-left: 2%;
+}
+
+.secuelas-container img{
+    margin-top: 20px;
+    height: 300px;
+    width: auto;
+    transition: 0.3s ease-in-out;
+}
+
+.secuelas-container img:hover {
+    border: 4px solid #FFD95F;
+    transform: scale(1.1);
+}
+
+.informacion-legal-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.contactos-especiales-container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-end;
+    margin-right: 2%;
+}
+
+.redes-sociales-container {
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    display: flex;
+    gap: 15px; /* Espaciado entre los iconos */
+    padding: 20px 0px;
+}
+
+.social-media-icon-container {
+    background-color: #FFD95F;
+    border-radius: 100%;
+    padding: 10px;
+    height: 85%;
+    transition: 0.3s ease-out;
+}
+
+.social-media-icon-container:hover {
+    background-color: #E52020;
+    transform: scale(1.1);
+}
+
+.social-media-icon {
+    height: 100%;
+    width: auto;
+}
+
+/* Sección del mapa */
+.mapa {
+    display: flex;
+    align-items: center;
+    margin-right: 5%;
+    background-color: #FFD95F;
+    padding: 5px; /* Espacio entre el borde y el iframe */  
+    display: inline-block; /* Ajusta el tamaño del div al contenido */
+    border-radius: 10px; /* Esquinas redondeadas */
+    transition: 0.3s ease-out;
+}
+
+.mapa:hover {
+    background-color: #E52020;
+}
+
+.mapa iframe{
+    width: auto;
+    border-radius: 10px
 }
