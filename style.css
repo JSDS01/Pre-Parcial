@@ -326,7 +326,7 @@ hr{
 
 .form-container-right input{
     width: 40%;
-    height: 100%; /* Extender la reseña hasta el formulario */
+    height: 75%; /* Extender la reseña hasta el formulario */
     display: flex;
     flex-direction: column;
 }
@@ -351,6 +351,28 @@ hr{
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: left;
+}
+
+.rating input {
+    display: none;
+}
+
+.rating label {
+    font-size: 5rem;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.rating input:checked ~ label,
+.rating label:hover,
+.rating label:hover ~ label {
+    color: gold;
 }
 
 /* Footer */
