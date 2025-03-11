@@ -427,7 +427,7 @@ footer {
 .secuelas-container {
     color: #FFD95F;
     font-size: 2vw;
-    margin-left: 2%;
+    margin: 0 2%;
 }
 
 .secuelas-container img{
@@ -446,6 +446,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: end;
+    margin: 0 2%;
 }
 
 .contactos-especiales-container {
@@ -453,15 +454,14 @@ footer {
     flex-direction: column;
     align-content: center;
     justify-content: flex-end;
-    margin-right: 2%;
+    margin: 0 2%;
 }
 
 .redes-sociales-container {
-    top: 10px; /* Ajusta la distancia desde la parte superior */
-    right: 20px; /* Ajusta la distancia desde la derecha */
     display: flex;
+    justify-content: center;
     gap: 15px; /* Espaciado entre los iconos */
-    padding: 20px 0px;
+    padding: 10px 0px;
 }
 
 .social-media-icon-container {
@@ -484,12 +484,9 @@ footer {
 
 /* Sección del mapa */
 .mapa {
-    display: flex;
-    align-items: center;
-    margin-right: 5%;
+    vertical-align: center;
     background-color: #FFD95F;
-    padding: 5px; /* Espacio entre el borde y el iframe */  
-    display: inline-block; /* Ajusta el tamaño del div al contenido */
+    padding: 10px 0px; /* Espacio entre el borde y el iframe */  
     border-radius: 10px; /* Esquinas redondeadas */
     transition: 0.3s ease-out;
 }
